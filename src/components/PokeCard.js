@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-// import PokeSprite from 'react-poke-sprites';
+import PokeSprite from 'react-poke-sprites';
 
 class PokeCard extends Component {
   state = {
