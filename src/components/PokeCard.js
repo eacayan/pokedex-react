@@ -1,8 +1,5 @@
 import React, { Component } from 'react'
-import PokeSprite from 'react-poke-sprites';
-
-// import './PokeCard.css';
-
+// import PokeSprite from 'react-poke-sprites';
 
 class PokeCard extends Component {
   state = {
@@ -32,11 +29,7 @@ class PokeCard extends Component {
       <div className="col s12 m6 l4">
         <div className="card center-align">
           <span className="card-image">
-            {/* <PokeSprite
-              pokemon={name}
-            /> */}
             <img src={image} alt={`${name}'s sprite`} />
-
           </span>
           <div className="card-content">
             {name
