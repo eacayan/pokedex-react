@@ -3,8 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "axios": "^0.18.0",
+    "pokesprite": "^1.5.1",
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
+    "react-poke-sprites": "0.0.8",
     "react-scripts": "2.1.8"
   },
   "scripts": {
