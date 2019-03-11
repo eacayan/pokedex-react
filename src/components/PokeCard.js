@@ -1,11 +1,13 @@
 import React, { Component } from 'react'
 // import PokeSprite from 'react-poke-sprites';
+import pokeball from '../assets/pokeball.gif';
 
 class PokeCard extends Component {
   state = {
     name: '',
     image: '',
-    pokemonId: ''
+    pokemonId: '',
+    imageLoading: true
   }
 
   componentDidMount() {
@@ -22,15 +24,22 @@ class PokeCard extends Component {
 
   }
   render() {
-    const { name, image } = this.state;
+    const { name, image, imageLoading } = this.state;
 
     return (
-
       <div className="col s12 m6 l4">
         <div className="card center-align">
           <span className="card-image">
-            <img src={image} alt={`${name}'s sprite`} />
+            <img
+              src={image}
+              alt={`${name}'s sprite`}
+              onLoad={() => this.setState({ imageLoading: false })} />
           </span>
+          {imageLoading ? (
+            <img
+              src={pokeball} alt="loading"
+              style={{ marginTop: '2.5em', width: '7em', height: '7em' }}></img>
+          ) : null}
           <div className="card-content">
             {name
               .toLowerCase()

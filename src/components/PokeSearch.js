@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PokeList from './PokeList';
 
 class PokeSearch extends Component {
   state = {
@@ -17,7 +18,6 @@ class PokeSearch extends Component {
     this.props.selectedPokemon(this.state.searchTerm);
   }
 
-
   render() {
     const { searchTerm } = this.state;
 
@@ -32,6 +32,10 @@ class PokeSearch extends Component {
               onChange={this.onInputChange}
             />
             <button className="btn-small red">SEARCH</button>
+
+            <PokeList
+              filteredPokemon={searchTerm}
+            />
           </div>
         </form>
       </div>

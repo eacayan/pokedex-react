@@ -1,8 +1,13 @@
 import React, { Component } from 'react';
 import PokeSearch from './PokeSearch';
-import PokeList from './PokeList';
+// import PokeList from './PokeList';
 import pokeapi from '../apis/pokeapi';
 
+// function filteredPokemon(pokemon) {
+//   return function (poke) {
+//     return poke.toLowerCase().includes(pokemon.toLowerCase()) || !pokemon;
+//   }
+// }
 
 class App extends Component {
   state = {
@@ -10,13 +15,13 @@ class App extends Component {
     selectedPokemon: null
   }
 
-  // use as prop for PokeList selection
+  // use as prop for PokeDetail (display all data for selected Pokemon)
   onPokemonSelection = async (pokemon) => {
     const res = await pokeapi.get(`/pokemon/${pokemon}`);
 
     this.setState({
       pokemonList: res.data['results'],
-      selectedPokemon: res.data.types,
+      selectedPokemon: res.data.name,
     });
     console.log(this.state.selectedPokemon);
   }
@@ -30,7 +35,9 @@ class App extends Component {
             <PokeSearch
               selectedPokemon={this.onPokemonSelection}
             />
-            <PokeList />
+            {/* <PokeList
+            /> */}
+
           </div>
           <div className="col s12 m6">right</div>
         </div>

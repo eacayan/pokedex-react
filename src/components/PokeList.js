@@ -2,6 +2,11 @@ import React, { Component } from 'react'
 import PokeCard from './PokeCard';
 import pokeapi from '../apis/pokeapi';
 
+// function searchingFor(term) {
+//   return function (char) {
+//     return char.toLowerCase().includes(term.toLowerCase()) || !term;
+//   }
+// }
 class PokeList extends Component {
   state = {
     pokemon: null,
@@ -9,7 +14,7 @@ class PokeList extends Component {
   }
 
   async componentDidMount() {
-    const res = await pokeapi.get('/pokemon');
+    const res = await pokeapi.get('/pokemon/?limit=20');
 
     this.setState({
       pokemon: res.data['results']
@@ -18,6 +23,8 @@ class PokeList extends Component {
 
   render() {
     const { pokemon } = this.state;
+
+    // if searchTerm return filtered PokeList based on inputted searchTerm, otherwise return full PokeList
     return (
       <div>
         <h6 className="grey-text">Browse Pokemon</h6>
@@ -26,6 +33,7 @@ class PokeList extends Component {
           name={pokemon.name}
           url={pokemon.url}
         />) : <h3>Loading...</h3>}
+
       </div>
     )
   }
