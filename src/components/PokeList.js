@@ -17,18 +17,26 @@ class PokeList extends Component {
     const res = await pokeapi.get('/pokemon/?limit=20');
 
     this.setState({
-      pokemon: res.data['results']
+      pokemonList: res.data['results']
     })
+    console.log(this.state.pokemonList);
   }
 
   render() {
-    const { pokemon } = this.state;
-
+    const { pokemonList } = this.state;
+    // const { filteredPokemon } = this.props;
+    // const filteredList = pokemonList.filter(poke => {
+    //   return poke.includes(filteredPokemon.toLowerCase())
+    // })
     // if searchTerm return filtered PokeList based on inputted searchTerm, otherwise return full PokeList
     return (
       <div>
         <h6 className="grey-text">Browse Pokemon</h6>
-        {pokemon ? pokemon.map(pokemon => <PokeCard
+        {/* {filteredList.map(pokemon => <PokeCard
+          key={pokemon.name}
+          name={pokemon.name}
+          url={pokemon.url} />)} */}
+        {pokemonList ? pokemonList.map(pokemon => <PokeCard
           key={pokemon.name}
           name={pokemon.name}
           url={pokemon.url}
