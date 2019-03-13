@@ -3,13 +3,28 @@ import PokeList from './PokeList';
 
 class PokeSearch extends Component {
   state = {
-    searchTerm: ''
+    searchTerm: '',
+    filteredSearches: []
   }
 
   onInputChange = (e) => {
-    this.setState({
-      searchTerm: e.target.value
-    });
+    const { options } = this.props;
+    const value = e.target.value
+
+    if (value.length > 0) {
+      const regex = new RegExp(`^${value}`, 'i');
+      const filteredSearches = options.sort().filter((item) => regex.test(item));
+
+      this.setState({
+        searchTerm: value,
+        filteredSearches
+      });
+    } else {
+      this.setState({
+        filteredSearches: [],
+        searchTerm: ''
+      })
+    }
   }
 
   onFormSubmit = (e) => {
@@ -19,7 +34,7 @@ class PokeSearch extends Component {
   }
 
   render() {
-    const { searchTerm } = this.state;
+    const { searchTerm, filteredSearches } = this.state;
 
     return (
       <div>
@@ -34,7 +49,7 @@ class PokeSearch extends Component {
             <button className="btn-small red">SEARCH</button>
 
             <PokeList
-              filteredPokemon={searchTerm}
+              filteredOptions={filteredSearches}
             />
           </div>
         </form>

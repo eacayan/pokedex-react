@@ -2,19 +2,14 @@ import React, { Component } from 'react'
 import PokeCard from './PokeCard';
 import pokeapi from '../apis/pokeapi';
 
-// function searchingFor(term) {
-//   return function (char) {
-//     return char.toLowerCase().includes(term.toLowerCase()) || !term;
-//   }
-// }
 class PokeList extends Component {
   state = {
-    pokemon: null,
+    pokemonList: [],
     url: 'https://pokeapi.co/api/v2/pokemon/'
   }
 
   async componentDidMount() {
-    const res = await pokeapi.get('/pokemon/?limit=20');
+    const res = await pokeapi.get('/pokemon/?limit=10');
 
     this.setState({
       pokemonList: res.data['results']
@@ -24,25 +19,20 @@ class PokeList extends Component {
 
   render() {
     const { pokemonList } = this.state;
-    // const { filteredPokemon } = this.props;
-    // const filteredList = pokemonList.filter(poke => {
-    //   return poke.includes(filteredPokemon.toLowerCase())
-    // })
+    const { filteredOptions } = this.props;
     // if searchTerm return filtered PokeList based on inputted searchTerm, otherwise return full PokeList
     return (
-      <div>
+      <React.Fragment>
         <h6 className="grey-text">Browse Pokemon</h6>
-        {/* {filteredList.map(pokemon => <PokeCard
-          key={pokemon.name}
-          name={pokemon.name}
-          url={pokemon.url} />)} */}
-        {pokemonList ? pokemonList.map(pokemon => <PokeCard
+        {filteredOptions}
+        {pokemonList ? pokemonList.map((pokemon) => <PokeCard
           key={pokemon.name}
           name={pokemon.name}
           url={pokemon.url}
         />) : <h3>Loading...</h3>}
 
-      </div>
+
+      </React.Fragment>
     )
   }
 }
