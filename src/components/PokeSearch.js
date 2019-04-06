@@ -1,40 +1,46 @@
 import React, { Component } from 'react';
-import PokeList from './PokeList';
 
 class PokeSearch extends Component {
   state = {
     searchTerm: '',
-    filteredSearches: []
+    filteredSearchTerm: []
   }
 
   onInputChange = (e) => {
-    const { options } = this.props;
+    const { pokemonNames, filterSearch } = this.props;
     const value = e.target.value
+    console.log('pokemonNames', pokemonNames)
+
+    let filteredSearchTerm;
 
     if (value.length > 0) {
       const regex = new RegExp(`^${value}`, 'i');
-      const filteredSearches = options.sort().filter((item) => regex.test(item));
+      filteredSearchTerm = pokemonNames.sort().filter((item) => regex.test(item));
+
+      console.log('filteredSearchTerm', filteredSearchTerm)
 
       this.setState({
         searchTerm: value,
-        filteredSearches
+        filteredSearchTerm
       });
     } else {
       this.setState({
-        filteredSearches: [],
-        searchTerm: ''
+        searchTerm: '',
+        filteredSearchTerm: []
       })
     }
+
+    filterSearch(filteredSearchTerm);
   }
 
   onFormSubmit = (e) => {
     e.preventDefault();
 
-    this.props.selectedPokemon(this.state.searchTerm);
+    // this.props.selectedPokemon(this.state.searchTerm);
   }
 
   render() {
-    const { searchTerm, filteredSearches } = this.state;
+    const { searchTerm } = this.state;
 
     return (
       <div>
@@ -45,11 +51,6 @@ class PokeSearch extends Component {
               type="text"
               value={searchTerm}
               onChange={this.onInputChange}
-            />
-            <button className="btn-small red">SEARCH</button>
-
-            <PokeList
-              filteredOptions={filteredSearches}
             />
           </div>
         </form>
