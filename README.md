@@ -1,5 +1,5 @@
 
-## Pokedex [Generation VIII]
+## Pokedex [Gen I - IV]
 
-This Pokedex is being made using React and Materialize CSS
+Made using React, Materialize CSS, and react-poke-sprites
 

@@ -1,0 +1,36 @@
+
+.detail{
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-template-rows: 20vh 50vh;
+  grid-column-gap: 2.5em;
+  min-height: 100vh;
+  align-items: center;
+  color: rgba(255, 255, 255, 0.726);
+  font-size: 20px;
+}
+
+.button {
+  grid-column: 1 / -1;
+}
+
+.sprite {
+  height: 10em;
+  justify-self: center;
+}
+
+.card-content {
+  line-height: 2;
+}
+
+.description {
+  line-height: 1.5;
+}
+
+.triple-spinner.detail-loading {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-top: -50px;
+  margin-left: -100px;
+}
