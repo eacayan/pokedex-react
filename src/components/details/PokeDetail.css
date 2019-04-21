@@ -6,7 +6,7 @@
   grid-column-gap: 2.5em;
   min-height: 100vh;
   align-items: center;
-  color: rgba(255, 255, 255, 0.726);
+  color: white;
   font-size: 20px;
 }
 
@@ -15,12 +15,43 @@
 }
 
 .sprite {
-  height: 10em;
+  height: 13em;
   justify-self: center;
 }
 
-.card-content {
-  line-height: 2;
+.basic-details {
+  line-height: 1;
+  margin-bottom: 0.5em;
+}
+
+.id {
+  font-size: 1.5em;
+}
+
+.icon {
+  width: .8em;
+  height: .8em;
+  margin-right: 5px;
+}
+
+.name {
+  font-size: 3em;
+}
+
+.types {
+  color: 'black';
+  font-weight: 'bold';
+  padding: '3px 10px 5px 10px';
+}
+
+.specific-details {
+  margin-top: 1em;
+  padding: 30px;
+  border: solid 1px black;
+  border-radius: 15px;
+  background-color: #3C3C3C;
+  color: #eaeaea;
+  font-size: 0.9em;
 }
 
 .description {

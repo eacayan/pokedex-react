@@ -4,6 +4,7 @@ import pokeapi from '../../apis/pokeapi';
 import PokeSprite from 'react-poke-sprites';
 
 import styled from 'styled-components';
+import pokeball from '../../assets/pokeball.png';
 import './PokeDetail.css';
 import '../../assets/Spinner.css';
 
@@ -116,25 +117,32 @@ class PokeDetail extends Component {
             </div>
 
             <div className="card-content left-align">
-              <div className="name">
-                {name}
-              </div>
-              <div className="id">
-                ID: {pokemonId}
+
+              <div className="basic-details">
+                <div className="id">
+                  <span><img src={pokeball} className="icon" /></span>
+                  {pokemonId < 10 ? `00${pokemonId}` : pokemonId < 100 ? `0${pokemonId}` : pokemonId}
+                </div>
+
+                <div className="name">
+                  {name}
+                </div>
               </div>
 
               {types.map(type => (
                 <TypeBadge
                   key="type"
                   className="types"
-                  style={{ backgroundColor: `${TYPE_COLORS[type]}`, color: 'white', fontWeight: 'bold', padding: '3px 10px 5px 10px' }}>{type}
+                  style={{ backgroundColor: `${TYPE_COLORS[type]}`, color: 'white', fontWeight: 'bold', padding: '3px 10px 7px 10px' }}>{type}
                 </TypeBadge>
               ))}
-              <div className="height">
-                {`Height: ${height} ft.  Weight: ${weight} kg.`}
-              </div>
-              <div className="description">
+
+              <div className="specific-details description">
                 {description}
+                <hr style={{ borderColor: 'rgb(128, 128, 128, 0.5)' }}></hr>
+                <div className="height">
+                  {`Height: ${height} ft.  Weight: ${weight} kg.`}
+                </div>
               </div>
             </div>
           </div>
