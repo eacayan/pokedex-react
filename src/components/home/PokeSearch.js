@@ -52,7 +52,7 @@ class PokeSearch extends Component {
       <div className="navbar-fixed">
         <nav>
           <div className="nav-wrapper red darken-2">
-            <a href="/" className="brand-logo left" style={{ paddingLeft: "2em" }}>Pokedex</a>
+            <a href="/" className="brand-logo left" style={{ paddingLeft: "2em" }}>Pokédex</a>
             <form
               onSubmit={this.onFormSubmit}
               className="right"
