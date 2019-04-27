@@ -6,3 +6,8 @@ body {
   background-repeat: repeat-x;
   background-attachment: fixed;
 }
+
+@font-face {
+  font-family: 'MyFont';
+  src: local('VCR OSD Mono'), url(./fonts/VCR_OSD_MONO_1.001.ttf) format('truetype');
+}
