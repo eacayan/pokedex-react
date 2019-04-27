@@ -67,7 +67,8 @@ class PokeCard extends Component {
               style={imageLoading ? null : { display: 'inline-block' }}
             />
 
-            <div className="card-content grey darken-1 white-text" style={{ padding: '2px', borderBottomLeftRadius: '20px', borderBottomRightRadius: '20px' }}>
+            <div className="card-content grey darken-1 white-text"
+              style={{ padding: '2px', borderBottomLeftRadius: '20px', borderBottomRightRadius: '20px' }}>
               {name
                 .toLowerCase()
                 .split(' ')

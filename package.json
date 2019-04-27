@@ -1,9 +1,12 @@
 {
   "name": "pokedex-react",
   "version": "0.1.0",
+  "homepage": "https://eacayan-pokedex.github.io",
   "private": true,
   "dependencies": {
     "axios": "^0.18.0",
+    "gh-pages": "^2.0.1",
+    "netlify": "^2.4.4",
     "pokesprite": "^1.5.1",
     "prop-types": "^15.7.2",
     "react": "^16.8.4",
@@ -12,9 +15,12 @@
     "react-poke-sprites": "0.0.8",
     "react-router-dom": "^5.0.0",
     "react-scripts": "2.1.8",
-    "styled-components": "^4.2.0"
+    "styled-components": "^4.2.0",
+    "webfontloader": "^1.6.28"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

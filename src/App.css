@@ -1,7 +1,8 @@
 body {
   min-height: 100vh;
-  font-family: 'VCR OSD Mono';
+  font-family: 'Gugi', cursive;
   background-color: #333333;
   background-image: url('./assets/background.png');
   background-repeat: repeat-x;
+  background-attachment: fixed;
 }
