@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react'
-import PokeSearch from './PokeSearch';
-import PokeCard from './PokeCard';
+import PokeSearch from '../search/PokeSearch';
+import PokeCard from '../card/PokeCard';
 
 import pokeapi from '../../apis/pokeapi';
 
@@ -12,7 +12,8 @@ class PokeHome extends Component {
   }
 
   async componentDidMount() {
-    const res = await pokeapi.get('/pokemon/?limit=493');
+    // Gen 1-3
+    const res = await pokeapi.get('/pokemon/?limit=386');
 
     const pokemonList = res.data['results'];
     const pokemonNames = res.data['results'].map(item => { return item.name });
