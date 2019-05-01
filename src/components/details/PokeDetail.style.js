@@ -103,6 +103,10 @@ export const Id = styled.div`
   ${media.xxs`
       font-size: 1em;
   `}
+
+  ${media.xs`
+      font-size: 1.2em;
+  `}
 `;
 
 export const Name = styled.div`
@@ -113,7 +117,7 @@ export const Name = styled.div`
   `}
 
   ${media.xs`
-      font-size: 2em;
+      font-size: 1.7em;
   `}
 
   ${media.s`
@@ -170,7 +174,7 @@ export const Description = styled.div`
   ${media.xs`
       width: 90vw;
       height: 80%;
-      font-size: 0.75em;
+      font-size: 0.65em;
   `}
 
   ${media.s`
