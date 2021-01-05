@@ -4,7 +4,7 @@
   "homepage": "https://eacayan-pokedex.github.io",
   "private": true,
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "gh-pages": "^2.0.1",
     "netlify": "^2.4.4",
     "pokesprite": "^1.5.1",
